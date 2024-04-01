@@ -5,7 +5,7 @@
 To develop a Django application to store and retrieve data from a Book database using Object Relational Mapping(ORM).
 
 ## Entity Relationship Diagram
-<img width="451" alt="er diagram booklist ss" src="https://github.com/swetha23013979/ORM/assets/153823422/b7fb51db-3007-4295-beca-dac589b5f5a5">
+![312752025-38582397-61f3-44d7-ba5f-652d496fdfce](https://github.com/swetha23013979/ORM/assets/153823422/a63de3bd-1f7d-4acc-824d-752355d1750f)
 
 
 
@@ -27,25 +27,26 @@ Execute Django admin and create details for 10 books
 
 ```
 models.py
-class Book(models.Model):
-  Book_id=models.IntegerField(primary_key=True);
-  Book_author=models.CharField(max_length=20);
-  Book_name=models.CharField(max_length=50);
-  publication=models.DateField();
-  price=models.IntegerField();
-class BookAdmin(admin.ModelAdmin):
-  list_display=("Book_id","Book_author","Book_name","publication","price");
+from django.db import models
+from django.contrib import admin
+class Book_DB(models.Model):
+      sno=models.IntegerField(primary_key="sno");
+      name=models.CharField(max_length=50);
+      author=models.CharField(max_length=70);
+      price=models.IntegerField();
+      publisher=models.CharField(max_length=60);
 
+class Book_DBAdmin(admin.ModelAdmin):
+    list_display=("sno","name","author","price","publisher");
 admin.py
 from django.contrib import admin
-from .models import Book,BookAdmin
-admin.site.register(Book,BookAdmin)
-Include your code here
+from .models import Book_DB,Book_DBAdmin
+admin.site.register(Book_DB,Book_DBAdmin)
 
 ```
 
 ## OUTPUT
-<img width="958" alt="booklist ss" src="https://github.com/swetha23013979/ORM/assets/153823422/d582522c-2b48-4dbb-b792-91add67e85fd">
+![312770060-c78cae4d-66f9-42f3-8014-e982941b685b](https://github.com/swetha23013979/ORM/assets/153823422/0b39d26e-df4a-43eb-bbf3-3756b32d3437)
 
 
 
